@@ -1,0 +1,83 @@
+:root {
+  --color-bg: #f4f6fa;
+  --color-primary: #155e95;
+  --color-text: #1f2937;
+  --radius-lg: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  /* Decidi usar fontes do próprio SO, evitando import externo. */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+.topbar-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  /* Suaviza mudanças visuais no hover e no clique. */
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.topbar-button:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.topbar-button:active {
+  /* Pequeno efeito de pressionar. */
+  transform: translateY(1px);
+}
+
+:focus-visible {
+  /* Aplica contorno quando o usuário navega por teclado, melhorando acessibilidade. */
+  outline: 3px solid rgba(21, 94, 149, 0.3);
+  outline-offset: 3px;
+}
+
+table {
+  /* 'separate' faz com que o espaçamento entre células seja controlado pelo border-spacing. */
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th:first-child {
+  /* Arredonda canto superior esquerdo. */
+  border-top-left-radius: var(--radius-lg);
+}
+
+th:last-child {
+  /* Arredonda canto superior direito. */
+  border-top-right-radius: var(--radius-lg);
+}
+
+td, th {
+  /* Mantém alinhamento vertical no centro. */
+  vertical-align: middle;
+}
+
+@media (max-width: 640px) {
+  .topbar-button {
+    /* Reduz o tamanho dos botões na tela pequena. */
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+}
